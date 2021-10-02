@@ -17,7 +17,7 @@ Xtrain=X[:train]
 Ytrain=Y[:train]
 Yntrain=Ynoise[:train]
 
-traini=Xtrain.argsort(axis=0)
+traini=Xtrain.argsort(axis=0) #sorting for plt plot
 testi=Xtest.argsort(axis=0)
 
 Xtest=Xtest[testi].reshape(10,1)
