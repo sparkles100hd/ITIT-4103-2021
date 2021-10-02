@@ -3,18 +3,18 @@ import matplotlib.pyplot as plt
 from numpy.linalg import inv
 import math
 
-X=np.random.random((50,1))
+X=np.random.random((50,1)) #generation
 Y=np.sin(1+np.square(X))
 noise=np.random.normal(0,0.032,size=(50,1))
 Ynoise=Y+noise
 train=40
 
-Xtest=X[train:]
+Xtest=X[train:] # dividing data
 Ytest=Ynoise[train:]
 Xtrain=X[:train]
 Ytrain=Ynoise[:train]
 
-ind=Xtrain.argsort(axis=0)
+ind=Xtrain.argsort(axis=0) # sorting the inputs to get sorted output (plot doesnt work properly otherwise)
 Xtrain=Xtrain[ind].reshape(Xtrain.shape[0],1)
 Ytrain=Ytrain[ind].reshape(Ytrain.shape[0],1)
 
@@ -23,10 +23,10 @@ Xtest=Xtest[ind].reshape(Xtest.shape[0],1)
 Ytest=Ytest[ind].reshape(Ytest.shape[0],1)
 
 A = np.concatenate((np.ones((Xtrain.shape[0], 1)),Xtrain), axis=1) # concatenates the '1' column to train
-W = inv(A.T @ A) @ A.T @ Ytrain
+W = inv(A.T @ A) @ A.T @ Ytrain # coefficient matrix
 
-y1 = W[1] * Xtest + W[0]
-y2= W[1] * Xtrain + W[0]
+y1 = W[1] * Xtest + W[0] #testing data coefficient matrix
+y2= W[1] * Xtrain + W[0] #testing data is the training data
 
 plt.subplot(2,2,1)
 plt.title("prediction on test data scatter")
