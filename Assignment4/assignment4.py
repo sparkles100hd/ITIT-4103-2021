@@ -16,10 +16,10 @@ plt.scatter(x,y,color='red',label='data points')
 plt.legend(loc='best')
 
 #our parameters and variables
-alpha=0.1
+alpha=0.01
 theta0=0
 theta1=0
-noOfIteration=2
+noOfIteration=2000
 
 #printing intial cost function
 h=(theta0*x) + theta1
