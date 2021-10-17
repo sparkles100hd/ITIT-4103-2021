@@ -33,12 +33,14 @@ for i in range(1,noOfIteration):
     theta0-= alpha * ((-1.0/len(x)) * (np.sum(x*(y-h))))
     theta1-= alpha * ((-1.0/len(x))* (np.sum(y-h)))
 
-
-#printing final cost value (for checking personally)
-h=(theta0*x) + theta1
-print('Final cost 2000 steps - ',np.sum((y-h)*(y-h))/(2*len(x)))
 theta1Final=theta1
 theta0Final=theta0
+
+#printing final cost value and parameters (for checking personally)
+h=(theta0*x) + theta1
+print('Final cost 2000 steps - ',np.sum((y-h)*(y-h))/(2*len(x)))
+print('theta0 (m) - ',theta0Final)
+print('theta1 (c) - ',theta1Final)
 
 
 #sorting the scatter points and the fit model points. sorting to get a proper plt graph else it wont work
